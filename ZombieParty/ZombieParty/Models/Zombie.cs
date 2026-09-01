@@ -8,7 +8,7 @@
 
         public int ZombieTypeId { get; set; }
         
-        public ZombieType ZombieType { get; set; }
+        public ZombieType? ZombieType { get; set; }
 
 
     }
