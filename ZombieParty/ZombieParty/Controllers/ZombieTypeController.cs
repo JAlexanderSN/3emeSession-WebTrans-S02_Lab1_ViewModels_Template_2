@@ -14,8 +14,8 @@ namespace ZombieParty.Controllers
 
         public IActionResult Index()
         {
-            this.ViewBag.MaListe = _baseDonnees.ZombieTypes.ToList();
-            return View();
+            List<ZombieType> zombieTypesList = _baseDonnees.ZombieTypes.ToList();
+            return View(zombieTypesList);
         }
 
 
@@ -39,6 +39,12 @@ namespace ZombieParty.Controllers
 
             return this.View(zombieType);
         }
+
+        public IActionResult Details()
+        {
+            return View();
+        }
+
 
 
     }
