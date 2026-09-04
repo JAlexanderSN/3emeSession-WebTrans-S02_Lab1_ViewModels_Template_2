@@ -1,22 +1,31 @@
-﻿@{
+﻿@model ZombieTypeVM
+@{
     ViewData["Title"] = "Details";
 }
 
-<h1>Type: NOM DU ZOMBIETYPE</h1>
+
+<h1>Type: @Model.ZombieType.TypeName</h1>
 
 <div class="row">
     @*  POUR CHAQUE ZOMBIE:*@
-    <div href="#" class="card  border m-3 text-center bg-warning" style="width: 20rem; background-image: url('/images/imagesLayout/Fond.png'); ">
-        <div class="card-body  text-warning">
-            <h3 class="card-title"> NOM DU ZOMBIE </h3>
-            <h5> POINT </h5>
+    @foreach (var item in Model.ZombiesList)
+    {
+
+        <div href="#" class="card  border m-3 text-center bg-warning" style="width: 20rem; background-image: url('/images/imagesLayout/Fond.png'); ">
+            <div class="card-body  text-warning">
+                <h3 class="card-title"> @item.Name  </h3>
+                <h5> @item.Point  </h5>
+            </div>
         </div>
-    </div>
+    }
 
 
 </div>
 @* SI AUCUN ZOMBIE ASSOCIÉ*@
-<div class="alert alert-danger">No associated zombie for this type</div>
+@if (Model.ZombiesList.Count == 0)
+{
+    <div class="alert alert-danger">No associated zombie for this type</div>            
+}
 
  
 <div>
